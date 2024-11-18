@@ -24,6 +24,6 @@ npm run build
 ### 格式化
 
 ```sh
-npm lint
+npm run lint
 ```
 
