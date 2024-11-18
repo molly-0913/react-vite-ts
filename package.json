@@ -10,7 +10,7 @@
     "build:uat": "tsc --noEmit && vite build --mode uat",
     "build:prod": "tsc --noEmit && vite build --mode prod",
     "build": "npm run build:fat && npm run build:uat && npm run build:prod",
-    "lint": "eslint --ext .ts,.tsx,.js src --fix",
+    "lint": "eslint src --fix",
     "preview": "vite preview"
   },
   "dependencies": {
