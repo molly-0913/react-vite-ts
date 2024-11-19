@@ -16,7 +16,7 @@ const persistConfig = {
   storage,
   whitelist: ['counter','encrypt', 'device'], //只针对 白名单中的reducer 做持久化
   blackList: ['common'],
-  // transforms: [counterTransform] // 指定只持久化reducer中的具体state
+  // transforms: [counterTransform] // 指定只持久化reducer中的具体state, 建议持久化的state 和 不需要持久化的 state 放不同的文件
 }
 
 
@@ -31,6 +31,7 @@ const rootReducer = combineReducers({
 
 // 创建持久化 reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer)
+
 
 // 方法二：不使用combineReducers 但需要对reducer 定义ts类型
 

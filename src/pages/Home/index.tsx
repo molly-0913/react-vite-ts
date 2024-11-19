@@ -22,7 +22,7 @@ function Home() {
         <span>scss</span>
       </div>
       <div className="flex justify-center w-16 md:w-32 lg:w-48 bg-[pink] md:bg-slate-400">
-        <span className="text-base">tailwincss</span>
+        <span className="text-[33px]">tailwincss</span>
       </div>
       <Button block color='primary' size='large' onClick={() => {
         navigate(`/browser`, {
