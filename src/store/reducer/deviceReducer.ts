@@ -5,24 +5,24 @@ import { nanoid } from 'nanoid'
 
 
 export interface DeviceState {
-        OS: string
-        OSVersion: string
-        UUID: string
-        date: string
-        deviceType: string
-        browserInfo: string
-        domain: string
-        fingerprint: string
-        language: string
-        netWork: string
-        screenHeight: number
-        screenWidth: number
-        userAgent: string
-        is_update_device: boolean
-        os?: Os
-        browser?: Browser
-        deviceName?: string
-    }
+  OS: string
+  OSVersion: string
+  UUID: string
+  date: string
+  deviceType: string
+  browserInfo: string
+  domain: string
+  fingerprint: string
+  language: string
+  netWork: string
+  screenHeight: number
+  screenWidth: number
+  userAgent: string
+  is_update_device: boolean
+  os?: Os
+  browser?: Browser
+  deviceName?: string
+}
 
 const initialState: DeviceState = {
   OS: "",
