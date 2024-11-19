@@ -29,6 +29,7 @@
     },
     "types": [
       "vite/client",
+      "@types/node"
     ]
   },
   "include": ["src","src/**/*.tsx", "src/**/*.ts", "src/**/*.d.ts"]

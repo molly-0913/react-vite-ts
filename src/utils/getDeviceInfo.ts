@@ -413,8 +413,6 @@ var VariableLibrary: any = {
               break
             case 75: // 无收藏栏,贴边
               break
-            case 74: // 无收藏栏,非贴边
-              break
             case 105: // 有收藏栏,贴边
               break
             case 104: // 有收藏栏,非贴边

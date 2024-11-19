@@ -17,7 +17,7 @@ const Browser = lazy(() => import(/* webpackChunkName: "Browser"*/ "@/pages/Brow
 
 
 const routes: RouteItem[] = [
-    { path: '/', name: 'home', component: Home, auth: false },
-    { path: '/browser', name: 'Browser', component: Browser, auth: false },
+  { path: '/', name: 'home', component: Home, auth: false },
+  { path: '/browser', name: 'Browser', component: Browser, auth: false },
 ]
 export default routes

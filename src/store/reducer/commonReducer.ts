@@ -5,18 +5,18 @@ export interface CommonState {
 }
 
 const initialState: CommonState= {
-    lang: 'en',
+  lang: 'en',
 }
 
 const commonSlice = createSlice({
-    name: 'common',
-    initialState,
-    reducers: {
-        initLang: (state) => {
-            state.lang = localStorage.getItem('lang') || ''
-        },
-    
+  name: 'common',
+  initialState,
+  reducers: {
+    initLang: (state) => {
+      state.lang = localStorage.getItem('lang') || ''
     },
+    
+  },
 })
 
 export const { initLang } = commonSlice.actions

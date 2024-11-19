@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode fat --host",
     "start": "npm run dev",
     "build:fat": "tsc --noEmit && vite build --mode fat",
     "build:uat": "tsc --noEmit && vite build --mode uat",

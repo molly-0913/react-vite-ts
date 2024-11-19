@@ -24,7 +24,7 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      indent: ['error', 4], //设置缩进格式是4
+      indent: ['error', 2], //设置缩进格式是2
     },
   },
 )
