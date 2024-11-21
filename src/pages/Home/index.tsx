@@ -6,6 +6,8 @@ import { getBulletins } from "@/api/bulletin"
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import i18n from '@/i18n'
+import Header from "@/components/Header"
+import useWindowSize from "@/hooks/useWindowSize"
 
 
 function Home() {
@@ -15,6 +17,7 @@ function Home() {
   const lang = useAppSelector((state) => state.common.lang)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  const { width, height } = useWindowSize()
 
   useEffect(() => {
     getBulletins({type: 1}).then(res => {
@@ -24,6 +27,7 @@ function Home() {
 
   return (
     <div>
+      <Header/>
       <span className="home_span">1111 == {count}</span>
       <div onClick={() => dispatch(increment())}>+</div>
       <div onClick={() => dispatch(decrement())}>-</div>
@@ -42,6 +46,9 @@ function Home() {
         }}>
           点击切换语言
         </p>
+      </div>
+      <div className="mb-3">
+        hooks -- {width} {height}
       </div>
       <Button block color='primary' size='large' onClick={() => {
         navigate(`/browser`, {

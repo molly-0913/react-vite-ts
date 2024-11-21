@@ -3,27 +3,6 @@ import { getDeviceInfo } from '@/utils/getDeviceInfo'
 import { detectInfo, type Browser, type Os } from '@/utils/detectInfo'
 import { nanoid } from 'nanoid'
 
-
-export interface DeviceState {
-  OS: string
-  OSVersion: string
-  UUID: string
-  date: string
-  deviceType: string
-  browserInfo: string
-  domain: string
-  fingerprint: string
-  language: string
-  netWork: string
-  screenHeight: number
-  screenWidth: number
-  userAgent: string
-  is_update_device: boolean
-  os?: Os
-  browser?: Browser
-  deviceName?: string
-}
-
 const initialState: DeviceState = {
   OS: "",
   OSVersion: "",
@@ -96,26 +75,9 @@ const deviceSlice = createSlice({
   extraReducers: (builder) => {
     // 处理 initDeviceInfo 的异步结果
     builder.addCase(initDeviceInfo.fulfilled, (state, action) => {
-      state.OS = action.payload.OS
-      state.OSVersion = action.payload.OSVersion
-      state.UUID = action.payload.UUID
-      state.date = action.payload.date
-      state.deviceType = action.payload.deviceType
-      state.browserInfo = action.payload.browserInfo
-      state.domain = action.payload.domain
-      state.fingerprint = action.payload.fingerprint
-      state.language = action.payload.language
-      state.netWork = action.payload.netWork
-      state.screenHeight = action.payload.screenHeight
-      state.screenWidth = action.payload.screenWidth
-      state.userAgent = action.payload.userAgent
-      state.is_update_device = action.payload.is_update_device
-      state.os = action.payload.os
-      state.browser = action.payload.browser
-      state.deviceName = action.payload.deviceName
-    })
-
-            
+      const device: DeviceState = action.payload
+      Object.assign(state, device)
+    })  
   }
 
 })
