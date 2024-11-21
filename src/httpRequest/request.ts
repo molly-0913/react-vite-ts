@@ -1,10 +1,6 @@
 import axios, { type InternalAxiosRequestConfig, type AxiosResponse, AxiosError } from 'axios'
 import { MD5 } from 'crypto-js'
-// import store from '@/store'
-// import { sleep } from "@/utils/tools"
-
-// import {RootState } from "@/store"
-
+import { getStroe } from "@/utils/tools"
 
 const baseURL = window.location.origin + '/api'
 
@@ -14,23 +10,13 @@ const service = axios.create({
   withCredentials: false, // send cookies when cross-domain requests
   timeout: 50000
 })
-let store: any
-
-// 动态设置 Redux store 的方法
-export const injectStore = (_store: any) => {
-  store = _store;
-};
 
   
 // 添加请求拦截器
 service.interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
-
-    // let device = store.getState().device
     const qid = MD5(Date.now() + String(Math.random()))
-
-    console.log(store,'store!!!');
-        
+    const store = getStroe()
     if (store) {
       const device = store.getState().device // 动态获取当前 Redux 状态
       Object.assign(config.headers, { 
@@ -40,12 +26,6 @@ service.interceptors.request.use(
       })
             
     }
-    // while (!device.fingerprint) {
-    //     await sleep(400)
-    //     device = store.getState().device
-    //   }
-    // console.log(device,'device-----');
-  
         
     return config
   },

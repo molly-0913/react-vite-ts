@@ -15,6 +15,7 @@
     "moduleDetection": "force",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "noEmit": true,
     "jsx": "react-jsx",
 
@@ -25,12 +26,22 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "#/*": ["src/types/*"]
     },
     "types": [
       "vite/client",
       "@types/node"
     ]
   },
-  "include": ["src","src/**/*.tsx", "src/**/*.ts", "src/**/*.d.ts"]
+  "include": [
+    "src",
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.d.ts", 
+    "src/types/**/*.d.ts", 
+    "env.d.ts",
+    "src/i18n/lang/*.json"
+    
+  ]
 }

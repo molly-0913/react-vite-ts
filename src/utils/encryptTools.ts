@@ -1,9 +1,9 @@
-import { useEncryptStore } from '@/stores/encrypt'
 import CryptoJS from 'crypto-js'
 import { Buffer } from 'buffer'
+import { getStroe } from "@/utils/tools"
 
 export function encrypt(text: any) {
-  const { aesKey } = useEncryptStore()
+  const { aesKey } = getStroe().getState().encrypt
   const key = CryptoJS.enc.Utf8.parse(aesKey)
   const encStr = CryptoJS.AES.encrypt(text, key, {
     iv: key, // AES向量
@@ -14,7 +14,7 @@ export function encrypt(text: any) {
 }
 
 export function decrypt(byteList: any) {
-  const { aesKey } = useEncryptStore()
+  const { aesKey } = getStroe().getState().encrypt
   const key = CryptoJS.enc.Utf8.parse(aesKey)
   const buf = Buffer.from(byteList, 'hex')
   const ciphertext = buf.toString('base64')
@@ -27,7 +27,7 @@ export function decrypt(byteList: any) {
 }
 
 export function encryptV2(text: any) {
-  const { aesKey } = useEncryptStore()
+  const { aesKey } = getStroe().getState().encrypt
   const key = CryptoJS.enc.Utf8.parse(aesKey)
   const encStr = CryptoJS.AES.encrypt(text, key, {
     mode: CryptoJS.mode.ECB, // 指定ECB模式
@@ -37,7 +37,7 @@ export function encryptV2(text: any) {
 }
 
 export function decryptV2(byteList: any) {
-  const { aesKey } = useEncryptStore()
+  const { aesKey } = getStroe().getState().encrypt
   const key = CryptoJS.enc.Utf8.parse(aesKey)
   const buf = Buffer.from(byteList, 'hex')
   const ciphertext = buf.toString('base64')

@@ -1,5 +1,7 @@
 import { lazy } from 'react'
 
+
+
 export type RouteItem = {
   path: string,
   name: string,
@@ -10,9 +12,6 @@ export type RouteItem = {
 const Home = lazy(() => import(/* webpackChunkName: "Home"*/ "@/pages/Home/index"))
 const Browser = lazy(() => import(/* webpackChunkName: "Browser"*/ "@/pages/Browser/index"))
 
-// const Home = lazy(() => import(/* webpackChunkName: "Home"*/ './pages/Home/index'));
-// const Browser = lazy(() => import(/* webpackChunkName: "Home"*/ './pages/Browser/index'));
-
 
 
 
@@ -21,3 +20,8 @@ const routes: RouteItem[] = [
   { path: '/browser', name: 'Browser', component: Browser, auth: false },
 ]
 export default routes
+
+
+
+
+

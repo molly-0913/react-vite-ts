@@ -6,7 +6,7 @@ import commonReducer from './reducer/commonReducer'
 // import { counterTransform } from './persistTransforms'
 import encryptReducer from './reducer/encryptReducer'
 import deviceReducer from "./reducer/deviceReducer"
-
+import userReducer from "./reducer/userReducer"
 import { combineReducers } from 'redux'
 
 
@@ -26,7 +26,8 @@ const rootReducer = combineReducers({
   counter: counterReducer,
   common: commonReducer,
   encrypt: encryptReducer,
-  device: deviceReducer
+  device: deviceReducer,
+  user: userReducer
 })
 
 // 创建持久化 reducer

@@ -5,6 +5,7 @@ import { Suspense, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from "@/store/hooks"
 import { initDeviceInfo } from "@/store/reducer/deviceReducer"
 import { initAesKey } from "@/store/reducer/encryptReducer"
+import { initUserInfo } from "@/store/reducer/userReducer"
 
 
 function App() {
@@ -16,12 +17,18 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log(fingerprint,'fingerprint----',aesKey);
-        
     if (fingerprint && !aesKey) {
       dispatch(initAesKey())
     }
+    
   }, [fingerprint,aesKey])
+
+  useEffect(() => {
+    if (fingerprint && aesKey) {
+      dispatch(initUserInfo())
+    }
+  }, [fingerprint, aesKey])
+  
 
   return (
     <>

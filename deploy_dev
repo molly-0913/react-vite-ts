@@ -1,0 +1,13 @@
+#!usr/bin/env groovy
+/**
+* Compile Pipeline Def
+*/
+@Library('library')_
+
+npmSCM_v2(
+  'public_capital_assistant_intercashier_mob',
+  'capital',
+  'assistant_intercashier_mob_dev',
+  'ls',
+  'dist/fat/*'
+)

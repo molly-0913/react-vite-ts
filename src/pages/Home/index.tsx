@@ -1,15 +1,26 @@
 import { useAppSelector, useAppDispatch } from "@/store/hooks"
 import { increment, decrement, addNum } from "@/store/reducer/counterReducer"
 import { Button } from 'antd-mobile'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import { getBulletins } from "@/api/bulletin"
+import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
+import i18n from '@/i18n'
 
 
 function Home() {
+  const { t } = useTranslation()
   const count = useAppSelector((state) => state.counter.count)
   const ax = useAppSelector((state) => state.counter.ax)
   const lang = useAppSelector((state) => state.common.lang)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    getBulletins({type: 1}).then(res => {
+      console.log(res,'res=======')
+    })
+  }, [])
 
   return (
     <div>
@@ -24,6 +35,14 @@ function Home() {
       <div className="flex justify-center w-16 md:w-32 lg:w-48 bg-[pink] md:bg-slate-400">
         <span className="text-[33px]">tailwincss</span>
       </div>
+      <div>
+        <span>多语言 {t('home_title')}</span>
+        <p className="my-2" onClick={() => {
+          i18n.changeLanguage(i18n.language.includes('en') ? 'zh_CN' : 'en_US')
+        }}>
+          点击切换语言
+        </p>
+      </div>
       <Button block color='primary' size='large' onClick={() => {
         navigate(`/browser`, {
           state: {
@@ -31,7 +50,7 @@ function Home() {
           }
         })
       }}>
-                Block Button
+        Block Button
       </Button>
     </div>
   )
