@@ -1,7 +1,7 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'
 import routes from './route'
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react'
 import { useAppSelector, useAppDispatch } from "@/store/hooks"
 import { initDeviceInfo } from "@/store/reducer/deviceReducer"
 import { initAesKey } from "@/store/reducer/encryptReducer"

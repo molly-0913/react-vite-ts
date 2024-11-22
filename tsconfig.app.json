@@ -39,7 +39,7 @@
     "src/**/*.tsx",
     "src/**/*.ts",
     "src/**/*.d.ts", 
-    "src/types/**/*.d.ts", 
+    // "src/types/**/*.d.ts", 
     "env.d.ts",
     "src/i18n/lang/*.json"
     
