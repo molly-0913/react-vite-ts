@@ -6,8 +6,8 @@ import { getBulletins } from "@/api/bulletin"
 import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import i18n from '@/i18n'
-import Header from "@/components/Header"
 import useWindowSize from "@/hooks/useWindowSize"
+
 
 
 function Home() {
@@ -27,7 +27,6 @@ function Home() {
 
   return (
     <div>
-      <Header/>
       <span className="home_span">1111 == {count}</span>
       <div onClick={() => dispatch(increment())}>+</div>
       <div onClick={() => dispatch(decrement())}>-</div>
@@ -51,7 +50,7 @@ function Home() {
         hooks -- {width} {height}
       </div>
       <Button block color='primary' size='large' onClick={() => {
-        navigate(`/browser`, {
+        navigate(`/order`, {
           state: {
             from: 'home'
           }
@@ -59,6 +58,7 @@ function Home() {
       }}>
         Block Button
       </Button>
+      
     </div>
   )
 }
